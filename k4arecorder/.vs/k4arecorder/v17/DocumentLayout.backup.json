@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Kinect\\Azure-Kinect-Sensor-SDK-develop\\tools\\k4arecorder\\k4arecorder\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{92A1A302-5530-4944-869B-F8F4B1E4B1E4}|..\\k4arecorder.vcxproj|C:\\Kinect\\Azure-Kinect-Sensor-SDK-develop\\tools\\k4arecorder\\recorder.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92A1A302-5530-4944-869B-F8F4B1E4B1E4}|k4arecorder.vcxproj|C:\\Kinect\\Azure-Kinect-Sensor-SDK-develop\\tools\\k4arecorder\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Kinect\\Azure-Kinect-Sensor-SDK-develop\\include\\k4a\\k4a.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "k4a.h",
+              "DocumentMoniker": "C:\\Kinect\\Azure-Kinect-Sensor-SDK-develop\\include\\k4a\\k4a.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\include\\k4a\\k4a.h",
+              "ToolTip": "C:\\Kinect\\Azure-Kinect-Sensor-SDK-develop\\include\\k4a\\k4a.h",
+              "RelativeToolTip": "..\\..\\..\\include\\k4a\\k4a.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-22T05:11:55.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "recorder.cpp",
+              "DocumentMoniker": "C:\\Kinect\\Azure-Kinect-Sensor-SDK-develop\\tools\\k4arecorder\\recorder.cpp",
+              "RelativeDocumentMoniker": "..\\recorder.cpp",
+              "ToolTip": "C:\\Kinect\\Azure-Kinect-Sensor-SDK-develop\\tools\\k4arecorder\\recorder.cpp",
+              "RelativeToolTip": "..\\recorder.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-22T05:05:50.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Kinect\\Azure-Kinect-Sensor-SDK-develop\\tools\\k4arecorder\\main.cpp",
+              "RelativeDocumentMoniker": "..\\main.cpp",
+              "ToolTip": "C:\\Kinect\\Azure-Kinect-Sensor-SDK-develop\\tools\\k4arecorder\\main.cpp",
+              "RelativeToolTip": "..\\main.cpp",
+              "ViewState": "AgIAAEABAAAAAAAAAAAAALQBAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-22T05:05:43.852Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
