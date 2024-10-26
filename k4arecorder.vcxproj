@@ -55,11 +55,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\packages</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\packages;C:\boost_1_70_0;C:\Users\ssrgt\AppData\Local\Programs\Python\Python37\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>k4a.lib;k4arecord.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Kinect\Azure-Kinect-Sensor-SDK-develop\tools\k4arecorder\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\boost_1_70_0\stage\lib\x64;C:\Kinect\Azure-Kinect-Sensor-SDK-develop\tools\k4arecorder\lib;C:\Users\ssrgt\AppData\Local\Programs\Python\Python37\Lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -70,11 +70,15 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\packages;C:\Users\ssrgt\AppData\Local\Programs\Python\Python37\include;C:\boost_1_70_0</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>k4a.lib;k4arecord.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(TargetDir)</OutputFile>
+      <AdditionalLibraryDirectories>C:\boost_1_70_0\stage\lib\x64;C:\Users\ssrgt\AppData\Local\Programs\Python\Python37\Lib;$(SolutionDir)\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

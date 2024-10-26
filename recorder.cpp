@@ -1,6 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
-
+//#define BOOST_PYTHON_STATIC_LIB
 #include "recorder.h"
 #include <ctime>
 #include <chrono>
@@ -10,6 +10,7 @@
 #include <string>
 #include <k4a/k4a.h>
 #include <k4arecord/record.h>
+//#include <boost/python.hpp>
 
 using namespace std::chrono;
 
@@ -55,10 +56,12 @@ int do_recording(uint8_t device_index,
                  bool record_imu,
                  int32_t absoluteExposureValue,
                  int32_t gain)
-{
+{   
+    //system("python recordAudio.py");
     seconds recording_length_seconds(recording_length);
-    seconds infinit_record_seconds(1000000000);
+    //seconds infinit_record_seconds(1000000000);
     const uint32_t installed_devices = k4a_device_get_installed_count();
+
     if (device_index >= installed_devices)
     {
         std::cerr << "Device not found." << std::endl;
@@ -99,6 +102,10 @@ int do_recording(uint8_t device_index,
         return 1;
     }
 
+
+
+
+    
     if (absoluteExposureValue != defaultExposureAuto)
     {
         if (K4A_FAILED(k4a_device_set_color_control(device,
