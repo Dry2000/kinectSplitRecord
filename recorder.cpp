@@ -72,6 +72,7 @@ int do_recording(uint8_t device_index,
     {
         std::cerr << "Runtime error: k4a_device_open() failed " << std::endl;
     }
+    // 記録するファイル名を引数のものに設定する
     std::string filename = std::string(recording_filename);
     size_t i = filename.find(".");
     std::string fileName = filename.substr(0,i);
@@ -159,12 +160,14 @@ int do_recording(uint8_t device_index,
 
     // Wait for the first capture before starting recording.
     k4a_capture_t capture;
+
     seconds timeout_sec_for_first_capture(60);
     if (device_config->wired_sync_mode == K4A_WIRED_SYNC_MODE_SUBORDINATE)
     {
         timeout_sec_for_first_capture = seconds(360);
         std::cout << "[subordinate mode] Waiting for signal from master" << std::endl;
     }
+    
     steady_clock::time_point first_capture_start = steady_clock::now();
     k4a_wait_result_t result = K4A_WAIT_RESULT_TIMEOUT;
     // Wait for the first capture in a loop so Ctrl-C will still exit.
@@ -182,7 +185,7 @@ int do_recording(uint8_t device_index,
             return 1;
         }
     }
-
+    // 録画の終了中なら、kinectとの接続を解除する
     if (exiting)
     {
         k4a_device_close(device);
@@ -200,12 +203,14 @@ int do_recording(uint8_t device_index,
         std::cout << "Press Ctrl-C to stop recording." << std::endl;
     }
     int counter = 1;
+    // 記録を開始したタイミングの時刻を記録する
     steady_clock::time_point recording_start = steady_clock::now();
     steady_clock::time_point recording_start_first_time = steady_clock::now();
     int32_t timeout_ms = 1000 / camera_fps;
     do{
         do
         {
+
             result = k4a_device_get_capture(device, &capture, timeout_ms);
             if (result == K4A_WAIT_RESULT_TIMEOUT)
             {
@@ -223,7 +228,7 @@ int do_recording(uint8_t device_index,
             {
                 while (true) {
                     //std::cout << "rooped!" << std::endl;
-
+                    //録画に失敗するか、録画終了中でない時、または、規定時間録画するまで録画を実行する
                     do
                     {
                         k4a_imu_sample_t sample;
@@ -245,7 +250,7 @@ int do_recording(uint8_t device_index,
                         }
                     } while (!exiting && result != K4A_WAIT_RESULT_FAILED &&
                         (recording_length < 0 || (steady_clock::now() - recording_start < recording_length_seconds)));
-
+                        
                    
                 }
             }
@@ -254,6 +259,7 @@ int do_recording(uint8_t device_index,
         std::cout << "Saving recording..." << std::endl;
         CHECK(k4a_record_flush(recording), device);
         k4a_record_close(recording); 
+        // ファイル名に録画開始からの経過時間を追加する
         seconds sec = duration_cast<seconds>(steady_clock::now() - recording_start_first_time);
         std::string secStr = std::to_string(sec.count());
         std::string filename = std::string(recordFileName) + "_" + secStr + ".mkv";
