@@ -22,7 +22,7 @@
 using namespace std::chrono;
 
 static steady_clock::time_point exiting_timestamp;
-
+// 録画を終了する関数
 static void signal_handler(int s)
 {
     (void)s; // Unused
@@ -113,6 +113,7 @@ static int string_compare(const char *s1, const char *s2)
 int main(int argc, char **argv)
 {
     int device_index = 0;
+    // ファイルの長さを指定する変数　秒単位
     int recording_length = 30*60;
     k4a_image_format_t recording_color_format = K4A_IMAGE_FORMAT_COLOR_MJPG;
     k4a_color_resolution_t recording_color_resolution = K4A_COLOR_RESOLUTION_1080P;
@@ -126,7 +127,7 @@ int main(int argc, char **argv)
     int absoluteExposureValue = defaultExposureAuto;
     int gain = defaultGainAuto;
     char *recording_filename;
-
+    // 標準入力のオプションをパースするところ
     CmdParser::OptionParser cmd_parser;
     cmd_parser.RegisterOption("-h|--help", "Prints this help", [&]() {
         std::cout << "k4arecorder [options] output.mkv" << std::endl << std::endl;
@@ -369,6 +370,7 @@ int main(int argc, char **argv)
         std::cerr << e.option() << ": " << e.what() << std::endl;
         return 1;
     }
+    // 上で受け付けたパラメータ以外に、入力が存在すれば、その入力をファイル名とする
     if (args_left == 1)
     {
         //std::string str = std::string(argv[argc - 1])+".mkv";
@@ -429,7 +431,7 @@ int main(int argc, char **argv)
     device_config.wired_sync_mode = wired_sync_mode;
     device_config.depth_delay_off_color_usec = depth_delay_off_color_usec;
     device_config.subordinate_delay_off_master_usec = subordinate_delay_off_master_usec;
-
+    // 録画をする関数 recorder.cpp に書いてある
     return do_recording((uint8_t)device_index,
                         recording_filename,
                         recording_length,
